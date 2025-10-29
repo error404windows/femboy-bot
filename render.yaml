@@ -1,4 +1,5 @@
 services:
+  # MAIN BOT
   - type: web
     name: femboy-bot
     env: python
@@ -9,3 +10,11 @@ services:
         fromDatabase:
           name: BOT_TOKEN
           property: value
+
+  # KEEP-ALIVE PINGER
+  - type: web
+    name: femboy-pinger
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python worker.py
+    healthCheckPath: /
