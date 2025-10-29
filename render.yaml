@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: femboy-bot
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python areufemboy.py
+    envVars:
+      BOT_TOKEN:
+        fromDatabase:
+          name: BOT_TOKEN
+          property: value
