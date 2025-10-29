@@ -29,5 +29,5 @@ async def on_ready():
 async def femboy(interaction: discord.Interaction, user: discord.User):
     percent = random.randint(0, 100)
     await interaction.response.send_message(f"{user.display_name} is {percent}% femboy!")
-
+@app_commands.dm_permission(True) 
 client.run(os.getenv('BOT_TOKEN'))
