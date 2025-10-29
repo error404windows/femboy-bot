@@ -33,7 +33,6 @@ async def on_ready():
 
 @client.tree.command(name="femboy", description="Check femboy percentage")
 @app_commands.describe(user="The user to check")
-@app_commands.dm_permission(True)  # ← Works in DMs
 async def femboy(interaction: discord.Interaction, user: discord.User):
     percent = random.randint(0, 100)
     await interaction.response.send_message(f"{user.display_name} is **{percent}%** femboy! 🏳️‍⚧️")
