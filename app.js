@@ -1,7 +1,7 @@
 const express = require('express');
 const { exec } = require('child_process');
 const app = express();
-const port = process.env.PORT || 10000;
+const port = process.env.PORT || 10000; // Use this to bind correctly in Render
 
 // Start Python bot
 const startBot = () => {
@@ -17,9 +17,9 @@ const startBot = () => {
   });
 };
 
-// Endpoint to check if bot is running
+// Endpoint to indicate the server is running
 app.get('/', (req, res) => {
-  res.send('Express app is running. Bot should be active.');
+  res.send('Express app is running with the bot!');
 });
 
 // Start the bot when the server starts
