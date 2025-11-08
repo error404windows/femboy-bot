@@ -3,7 +3,6 @@ import time
 import os
 from http.server import HTTPServer, BaseHTTPRequestHandler
 
-
 class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
         self.send_response(200)
@@ -13,13 +12,13 @@ class Handler(BaseHTTPRequestHandler):
 
 def run_server():
     server = HTTPServer(('0.0.0.0', 8080), Handler)
+    print("Keep-alive server running on port 8080...")
     server.serve_forever()
 
+# Start the HTTP server in a separate thread
 threading.Thread(target=run_server, daemon=True).start()
 
-print("Keep-alive server running on port 8080...")
-
-
+# Keep alive logic
 while True:
     time.sleep(300)
     print("Ping! Still alive.")
