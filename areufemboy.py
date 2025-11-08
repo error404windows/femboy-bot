@@ -37,4 +37,12 @@ async def femboy(interaction: discord.Interaction, user: discord.User):
     percent = random.randint(0, 100)
     await interaction.response.send_message(f"{user.display_name} is **{percent}%** femboy! 🏳️‍⚧️")
 
+@client.tree.command(name="setfemboy", description="Set femboy percentage manually")
+@app_commands.describe(user="The user to check", percent="The femboy percentage (0-100)")
+async def set_femboy(interaction: discord.Interaction, user: discord.User, percent: int):
+    if 0 <= percent <= 100:
+        await interaction.response.send_message(f"{user.display_name} is **{percent}%** femboy! 🏳️‍⚧️")
+    else:
+        await interaction.response.send_message("Please enter a valid percentage between **0** and **100**.")
+
 client.run(os.getenv('BOT_TOKEN'))
